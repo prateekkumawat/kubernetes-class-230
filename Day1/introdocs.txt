@@ -1,0 +1,13 @@
+Pod: Smallest unit that will help youto manage containers. 
+1. pod is contain containers
+2. pod provide network shared liberary and stoarages and security contexts for containers. 
+3. you can run one or multiple containers in pods 
+4. mostly cases one containers in one pod 
+5. multi containers in pod in that cases such as 
+    -> running db or any  containers and you want logging containers for travel logs to remotes servers.
+    -> create a containers backup or any script. 
+    -> side car concept 
+
+6. pods need to be update or containers need to update or its goes on failure.new creaate
+7.  kubectl run pod_name --image=imgage_name --port=container_port 
+ 
