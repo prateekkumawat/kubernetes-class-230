@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: hsitpod1
-  namespace: defaults
+  namespace: default
   labels:
     name: hsitpod1
     app: hsitapp
