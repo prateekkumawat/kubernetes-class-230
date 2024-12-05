@@ -10,4 +10,8 @@ Pod: Smallest unit that will help youto manage containers.
 
 6. pods need to be update or containers need to update or its goes on failure.new creaate
 7.  kubectl run pod_name --image=imgage_name --port=container_port 
+8. connect with pod and containers
+kubectl exec -it -n namespace pod_name -- command
+
+9. kubectl delete pod pod_name -n namespace 
  
