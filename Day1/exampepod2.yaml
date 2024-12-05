@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hsitpod2
+  namespace: default
+  labels:
+    name: hsitpod2
+    app: hsitapp2
+spec:
+  containers:
+  - name: web
+    image: nginx 
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+  # apply redis app container    
+  - name: redis
+    image: redis
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 5432    
