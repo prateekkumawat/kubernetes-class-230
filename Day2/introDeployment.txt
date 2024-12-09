@@ -1,0 +1,13 @@
+Deployment: deployment manage pod scalable, update. every application using deployment 
+---> any web application need to scalabel 
+---> help to update and manage revision 
+---> any case of failure deployment help to manage require no of pod 
+
+# create deployment using command 
+kubectl create deployment test --image=image_name --port --replicas=3 
+
+# get deployment and pod 
+kubectl get deployment,pod  test
+
+# describe details 
+kubectl describe deployment test 

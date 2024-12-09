@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cano-app
+  namespace: days
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node
+      os: ubuntu
+      client: cano
+  template:
+    metadata:
+      labels:
+        app: node
+        os: ubuntu
+        client: cano
+    spec:
+      containers:
+      - name: cano-node-app
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
