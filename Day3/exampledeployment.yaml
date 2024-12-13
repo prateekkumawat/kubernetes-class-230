@@ -18,5 +18,5 @@ spec:
       - name: build-nginx
         image: nginx:latest
         ports:
-        - container_Port: 80
+        - containerPort: 80
         
