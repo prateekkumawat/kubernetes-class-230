@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: build-app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        type: infra
+        app: infra_apps
+    spec:
+      containers:
+      - name: build-nginx
+        image: nginx:latest
+        ports:
+        - name: build-nginx-port
+          port: 80
+          protocol: TCP
+        

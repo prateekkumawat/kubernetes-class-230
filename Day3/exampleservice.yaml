@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:build-app-svc
+spec:
+  selector:
+    type: infra
+    app: infra_apps
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
