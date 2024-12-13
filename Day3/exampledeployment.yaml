@@ -4,6 +4,10 @@ metadata:
   name: build-app
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      type: infra
+      app: infra_apps
   template:
     metadata:
       labels:
