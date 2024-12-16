@@ -1,0 +1,25 @@
+# kubernetes is using volume for store data persistently. 
+if we are storing data in pod without using volume in that case whatever data is genererated by kubernetes in pods will be 
+wipe out because of it's container behaviour. 
+that is reseon we always used persistent volume with pods and container. 
+
+kubernetes provide various type of volume that we can use as per our requirements
+1. NFS
+2. Cloud storeag volumes like EBS AzureDisk GCPpersistentdisk 
+3. local Direectory 
+4. RBD 
+5. PowerX storage and such as many more 
+
+kubernetes support persistent Volume and persistent VOlumeClaim 
+
+AccessMode in kubernetes
+1. RWX: ReadWriteMany any node and Pod  can store data  
+2. RWOP: ReadWriteOncePod only one pod can do write 
+3. ROX: ReadOnlyMany  only node and pod can read data 
+4. RWO: ReadWriteOnce  only one node can write and other will be only read 
+
+Reclaim Policy: 
+
+Delete: once you delete from pod data will be delete from pv and storage 
+Retain: Once you delete data, data will be delete from pv but it will remain in storage in that case manual retain possible
+Recycle: Once you delete data it will delete from pod but pv and storage keep store
