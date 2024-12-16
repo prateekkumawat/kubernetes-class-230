@@ -2,10 +2,11 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mydata-pvc
+  labels:
+    app: datastore
 spec:
   resources:
     requests:
       storage: 1G
-  volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

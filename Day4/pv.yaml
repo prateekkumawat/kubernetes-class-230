@@ -2,10 +2,11 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mydata-pv
+  labels: 
+    app: datastore
 spec:
   capacity:
     storage: 3G
-  volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Recycle
