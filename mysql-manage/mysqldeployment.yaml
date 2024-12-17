@@ -27,12 +27,12 @@ spec:
         ports:
         - containerPort: 3306
         env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: "redhat"
-          - name: MYSQL_USER
-            value: prateek
-          - name: MYSQL_ROOT_PASSWORD
-            value: "redhat"
+        - name: MYSQL_ROOT_PASSWORD
+          value: redhat
+        - name: MYSQL_USER
+          value: prateek
+        - name: MYSQL_ROOT_PASSWORD
+          value: redhat
         volumeMounts:
         - name: databasevol
           mountPath: /var/lib/mysql/
