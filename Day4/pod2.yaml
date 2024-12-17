@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "web1"
+  namespace: default
+  labels:
+    app: "web1"
+spec:
+  containers:
+  - name: web1
+    image: "nginx:latest"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    ports:
+    - containerPort:  80
+      name:  http
+    volumeMounts:
+    - name: datavol1
+      mountPath: /opt
+  volumes:
+    - name: datavol1
+      persistentVolumeClaim:
+        claimName: webapp-pvc
