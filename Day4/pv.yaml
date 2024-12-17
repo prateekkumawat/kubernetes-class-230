@@ -1,19 +1,14 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: mydata-pv
-  labels: 
-    app: datastore
+  name: webapp-pv
+  labels:
+    app: web
 spec:
   capacity:
-    storage: 3G
+    storage: 1Gi
   accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
-  per
-  mountOptions:
-    - hard
-    - nfsvers=4.1
+    - ReadWriteMany
   nfs:
-    path: /data
-    server: 172.31.3.217
+    path: /data/    # nfs server share directory
+    server: 172.31.3.217  # nfs-server ip
