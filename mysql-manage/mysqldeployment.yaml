@@ -33,6 +33,8 @@ spec:
         env:
         - name: MYSQL_USER
           value: prateek
+        - name: MYSQL_PASSWORD
+          value: redhat
         - name: MYSQL_ROOT_PASSWORD
           value: redhat
         volumeMounts:
