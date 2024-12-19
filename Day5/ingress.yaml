@@ -26,3 +26,12 @@ spec:
             name: web2
             port:
               number: 80            
+  - http:
+      paths:
+      - path: /web3
+        pathType: Prefix
+        backend:
+          service:
+            name: web3
+            port:
+              number: 80             
