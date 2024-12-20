@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: datapv
+  namespace: state
+  labels:
+    app: db
+    type: mysql
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /datadir    # nfs server share directory
+    server: 172.31.3.217  # nfs-server ip

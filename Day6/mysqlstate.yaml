@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-app
+  namespace: state
+  labels:
+    app: db
+    type: mysql
+spec:
+  selector:
+    matchLabels:
+      app: db
+      type: mysql  
+  #serviceName: "nginx"
+  replicas: 1  # by default is 1
+  template:
+    metadata:
+      labels:
+        app: db
+        type: mysql
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: mysql-db-app
+        image: mysql:latest
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: datavol
+          mountPath: /var/log/mysql/
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "1000Mi"
+          limits: 
+            cpu: "1000m" 
+            memory: "1500Mi"
+        env:
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: secret-db-auth
+                key: username
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: secret-db-auth
+                key: password
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: secret-db-auth
+                key: password
+      volumes:
+      - name: datavol
+        persistentVolumeClaim:
+          claimName: datapvc  
