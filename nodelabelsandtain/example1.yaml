@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: masterpod
+  labels:
+    name: masterpod
+spec:
+  containers:
+  - name: masterpod
+    image: nginx:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+    selector:
+      app: infra
+      lavel: mgmt
